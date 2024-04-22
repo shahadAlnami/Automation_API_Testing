@@ -1,5 +1,10 @@
 package pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.testng.annotations.Test;
+
+@JsonIgnoreProperties(ignoreUnknown = true) //With this annotation, we will ignore the fields that does not fit the fields in this class.
+
 public class JsonPlaceHolderPojo {
     //Create private variables for each field
     private Integer userId;
@@ -44,10 +49,12 @@ public class JsonPlaceHolderPojo {
     //Create ToString
     @Override
     public String toString() {
-        return "JsonPlaceHolderPojo{" +
+        return "JsonPlaceHolderPojo [ " +
                 "userId=" + userId +
                 ", title='" + title + '\'' +
                 ", completed=" + completed +
-                '}';
+                ']';
     }
+
+
 }

@@ -61,6 +61,5 @@ public class C17_GetRequestMap extends BookerBaseUrl {
         assertEquals(((Map) actualData.get("bookingdates")).get("checkout"), bookingDates.get("checkout"));
         assertEquals(actualData.get("additionalneeds"), expectedData.get("additionalneeds"));
 
-
     }
 }
