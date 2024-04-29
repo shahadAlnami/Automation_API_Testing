@@ -35,7 +35,7 @@ public class C09_Groovy extends JsonPlaceHolderBaseUrl {
         spec.pathParams("first", "todos");
 
         Response response = given(spec).get("{first}");
-        //response.prettyPrint();
+        response.prettyPrint();
 
         JsonPath jsonPath = response.jsonPath();
         response.then().statusCode(200);
@@ -67,6 +67,7 @@ public class C09_Groovy extends JsonPlaceHolderBaseUrl {
 //        5)Print id whose title is "quo adipisci enim quam ut ab"
 //        Assert that id is 8
         Object idWithTitle = jsonPath.getList("findAll{it.title=='quo adipisci enim quam ut ab'}.id").getFirst();
+
         Assert.assertEquals(idWithTitle, 8);
 
     }
