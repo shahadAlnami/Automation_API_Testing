@@ -1,15 +1,14 @@
 package request;
 
-import io.restassured.http.ContentType;
+import base_urls.dummy;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import static io.restassured.RestAssured.given;
 
-public class team03_practise extends dummy{
+public class team03_practise extends dummy {
     /**
      * // Base URL should be used as Spec
      * // Given https://gorest.co.in/public/v2/todos/47900

@@ -3,9 +3,9 @@ package request;
 import base_urls.BookerBaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import pojo.BookingDatesPojo;
-import pojo.BookingPojo;
-import pojo.BookingResponsePojo;
+import pojos.BookingDatesPojo;
+import pojos.BookingPojo;
+import pojos.BookingResponsePojo;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;

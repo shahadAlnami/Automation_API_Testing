@@ -1,18 +1,18 @@
 package request;
 
 import base_urls.JsonPlaceHolderBaseUrl;
-import io.restassured.common.mapper.TypeRef;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.JsonPlaceHolderPojo;
-
-import java.util.List;
+import utilities.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 import static utilities.ObjectMapperUtils.convertJsonToJava;
 
-public class C27_PojoList extends JsonPlaceHolderBaseUrl {
+public class C28_PojoListGroovy extends JsonPlaceHolderBaseUrl {
     /*
         Given
             https://jsonplaceholder.typicode.com/todos
@@ -30,7 +30,7 @@ public class C27_PojoList extends JsonPlaceHolderBaseUrl {
                 }
      */
     @Test
-    void pojoListTest() {
+    void pojoListTest() throws JsonProcessingException {
         //Set the url
         spec.pathParams("first", "todos");
 
@@ -52,22 +52,12 @@ public class C27_PojoList extends JsonPlaceHolderBaseUrl {
         response.prettyPrint();
 
         //Do assertion
-        List<JsonPlaceHolderPojo> actualDataList = response.as(new TypeRef<>() {
-        });
-        System.out.println("actualDataList = " + actualDataList);
+        Object actualDataObject = response.jsonPath().getList("findAll{it.title=='et porro tempora'}").getFirst();//getList() method takes the elements as Object
+        System.out.println("actualDataObject = " + actualDataObject);
+        String actualDataString = new ObjectMapper().writeValueAsString(actualDataObject);//Since the element in Object type we need to convert it to String via writeValueAsString() method.
+        System.out.println("actualDataString = " + actualDataString);
 
-        int idx = 0;
-        for (JsonPlaceHolderPojo eachPojo : actualDataList) {
-
-            if (eachPojo.getTitle().equals(expectedData.getTitle())) {
-                break;
-            }
-            idx++;
-        }
-
-        System.out.println("idx = " + idx);
-        JsonPlaceHolderPojo actualData = actualDataList.get(idx);
-        System.out.println("actualData = " + actualData);
+        JsonPlaceHolderPojo actualData = ObjectMapperUtils.convertJsonToJava(actualDataString, JsonPlaceHolderPojo.class);
 
         assertEquals(response.statusCode(), 200);
         assertEquals(actualData.getUserId(), expectedData.getUserId());

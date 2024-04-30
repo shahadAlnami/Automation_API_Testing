@@ -2,9 +2,8 @@ package request;
 
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pojo.JsonPlaceHolderPojo;
+import pojos.JsonPlaceHolderPojo;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;

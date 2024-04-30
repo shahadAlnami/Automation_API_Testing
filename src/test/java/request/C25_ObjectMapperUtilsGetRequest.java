@@ -2,9 +2,7 @@ package request;
 
 import base_urls.BookerBaseUrl;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pojo.BookingPojo;
 import utilities.ObjectMapperUtils;
 
 import java.util.Map;

@@ -3,9 +3,8 @@ package request;
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pojo.JsonPlaceHolderPojo;
+import pojos.JsonPlaceHolderPojo;
 
 import java.util.List;
 
