@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Clarusway/IdeaProjects/ApiProject/src/test/java/booker_test">
+        <classes>
+            <class name="booker_test.R01_GetBookingIds"></class>
+            <class name="booker_test.R02_CreateBooking"></class>
+            <class name="booker_test.R03_GetBooking"></class>
+            <class name="booker_test.R04_UpdateBooking"></class>
+            <class name="booker_test.R05_PartialUpdateBooking"></class>
+            <class name="booker_test.R06_DeleteBooking"></class>
+            <class name="booker_test.R07_HealthCheck"></class>
+        </classes>
+    </test>
+</suite>
+
+
+ <!--We created this xml file to run the classes in an order-->
